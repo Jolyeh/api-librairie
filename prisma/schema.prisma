@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -92,7 +93,7 @@ model Request {
 
 model Transaction {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  transactionId Int   @unique
+  transactionId Int      @unique
   status        String
   bookId        String   @db.ObjectId
   book          Book     @relation(fields: [bookId], references: [id])
