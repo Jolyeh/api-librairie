@@ -17,7 +17,7 @@ export const createPayment = async (req, res) => {
             description: "Achat du livre : " + book.title,
             amount: book.price,
             currency: { iso: "XOF" },
-            callback_url: "http://localhost:3000/api/payment/callback",
+            callback_url: "http://0.0.0.0:3000/api/payment/callback",
             customer: {
                 email: req.user.email,
                 firstname: req.user.name,
