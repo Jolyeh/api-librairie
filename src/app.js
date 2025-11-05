@@ -14,8 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.send('Bienvenue sur l\'API de la librairie en ligne');
