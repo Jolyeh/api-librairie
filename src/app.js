@@ -14,11 +14,13 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.send('Bienvenue sur l\'API de la librairie en ligne');
 });
 
+app.use("/images", express.static("upload/images"));
 app.use('/api', authRoutes);
 app.use('/api/book', bookRoutes);
 app.use('/api/category', categoryRoutes);

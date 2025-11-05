@@ -1,4 +1,5 @@
 import { prisma } from "../config/prisma.js";
+import { uploadToCloudinary } from "../utils/cloudinaryUpload.js";
 import { sendResponse } from "../utils/response.js";
 
 
@@ -93,8 +94,11 @@ export const addBook = async (req, res) => {
         return sendResponse(res, false, 'Veuillez remplir tous les champs.');
     }
 
-    const image = req.files?.image ? req.files.image[0].filename : null;
-    const pdf = req.files?.pdf ? req.files.pdf[0].filename : null;
+    const imageResult = await uploadToCloudinary(req.files.image[0].buffer, "books/images", "image");
+    const pdfResult = await uploadToCloudinary(req.files.pdf[0].buffer, "books/pdfs", "raw");
+
+    const image = imageResult.secure_url;
+    const pdf = pdfResult.secure_url;
 
     if (!image || !pdf) {
         return sendResponse(res, false, "Image et PDF requis.");
@@ -172,54 +176,4 @@ export const updateBook = async (req, res) => {
     });
 
     return sendResponse(res, true, 'Livre mis à jour avec succès.', updatedBook);
-}
-
-export const downloadBook = async (req, res) => {
-    const { bookId } = req.params;
-
-    const book = await prisma.book.findUnique({
-        where: { id: bookId }
-    });
-
-    if (!book) {
-        return sendResponse(res, false, 'Livre non trouvé.');
-    }
-
-    const filePath = `uploads/pdf/${book.pdf}`;
-    const downloadName = `${book.title}.pdf`;
-
-    res.download(filePath, downloadName, (err) => {
-        if (err) {
-            return sendResponse(res, false, 'Erreur lors du téléchargement du livre.');
-        }
-    });
-
-    await prisma.book.update({
-        data: {
-            download: { increment: 1 }
-        },
-        where: {
-            id: bookId
-        }
-    });
-}
-
-export const showBookImage = async (req, res) => {
-    const { bookId } = req.params;
-
-    const book = await prisma.book.findUnique({
-        where: { id: bookId }
-    });
-
-    if (!book) {
-        return sendResponse(res, false, 'Livre non trouvé.');
-    }
-
-    const imagePath = `uploads/images/${book.image}`;
-
-    res.sendFile(imagePath, { root: '.' }, (err) => {
-        if (err) {
-            return sendResponse(res, false, "Erreur lors de l'affichage de l'image.");
-        }
-    });
 }

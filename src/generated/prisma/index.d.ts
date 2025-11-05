@@ -4884,8 +4884,8 @@ export namespace Prisma {
     author: string
     price: number
     stock: number
-    image: string | null
-    pdf: string | null
+    image: string
+    pdf: string
     click: number
     download: number
     userId: string
@@ -4975,8 +4975,8 @@ export namespace Prisma {
       author: string
       price: number
       stock: number
-      image: string | null
-      pdf: string | null
+      image: string
+      pdf: string
       click: number
       download: number
       userId: string
@@ -9271,8 +9271,8 @@ export namespace Prisma {
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
-    image?: StringNullableFilter<"Book"> | string | null
-    pdf?: StringNullableFilter<"Book"> | string | null
+    image?: StringFilter<"Book"> | string
+    pdf?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
     userId?: StringFilter<"Book"> | string
@@ -9314,8 +9314,8 @@ export namespace Prisma {
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
-    image?: StringNullableFilter<"Book"> | string | null
-    pdf?: StringNullableFilter<"Book"> | string | null
+    image?: StringFilter<"Book"> | string
+    pdf?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
     userId?: StringFilter<"Book"> | string
@@ -9359,8 +9359,8 @@ export namespace Prisma {
     author?: StringWithAggregatesFilter<"Book"> | string
     price?: FloatWithAggregatesFilter<"Book"> | number
     stock?: IntWithAggregatesFilter<"Book"> | number
-    image?: StringNullableWithAggregatesFilter<"Book"> | string | null
-    pdf?: StringNullableWithAggregatesFilter<"Book"> | string | null
+    image?: StringWithAggregatesFilter<"Book"> | string
+    pdf?: StringWithAggregatesFilter<"Book"> | string
     click?: IntWithAggregatesFilter<"Book"> | number
     download?: IntWithAggregatesFilter<"Book"> | number
     userId?: StringWithAggregatesFilter<"Book"> | string
@@ -9746,8 +9746,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     createdAt?: Date | string
@@ -9764,8 +9764,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     userId: string
@@ -9781,8 +9781,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9798,8 +9798,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
@@ -9816,8 +9816,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     userId: string
@@ -9832,8 +9832,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9846,8 +9846,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
@@ -10250,22 +10250,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-    isSet?: boolean
-  }
-
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -10373,25 +10357,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-    isSet?: boolean
-  }
-
   export type EnumTypeStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.TypeStatus | EnumTypeStatusFieldRefInput<$PrismaModel>
     in?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
@@ -10428,6 +10393,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumTypeStatusFilter<$PrismaModel>
     _max?: NestedEnumTypeStatusFilter<$PrismaModel>
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
   }
 
   export type UserNullableScalarRelationFilter = {
@@ -10468,6 +10449,25 @@ export namespace Prisma {
     statusId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type BookScalarRelationFilter = {
@@ -10791,11 +10791,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-    unset?: boolean
-  }
-
   export type UserUpdateOneRequiredWithoutBooksNestedInput = {
     create?: XOR<UserCreateWithoutBooksInput, UserUncheckedCreateWithoutBooksInput>
     connectOrCreate?: UserCreateOrConnectWithoutBooksInput
@@ -10916,6 +10911,11 @@ export namespace Prisma {
     delete?: StatusWhereInput | boolean
     connect?: StatusWhereUniqueInput
     update?: XOR<XOR<StatusUpdateToOneWithWhereWithoutRequestInput, StatusUpdateWithoutRequestInput>, StatusUncheckedUpdateWithoutRequestInput>
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+    unset?: boolean
   }
 
   export type BookCreateNestedOneWithoutTransactionsInput = {
@@ -11041,21 +11041,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-    isSet?: boolean
-  }
-
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -11088,6 +11073,38 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type NestedEnumTypeStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.TypeStatus | EnumTypeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeStatusFilter<$PrismaModel> | $Enums.TypeStatus
+  }
+
+  export type NestedEnumTypeStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TypeStatus | EnumTypeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeStatusWithAggregatesFilter<$PrismaModel> | $Enums.TypeStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTypeStatusFilter<$PrismaModel>
+    _max?: NestedEnumTypeStatusFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -11116,23 +11133,6 @@ export namespace Prisma {
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
     isSet?: boolean
-  }
-
-  export type NestedEnumTypeStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.TypeStatus | EnumTypeStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumTypeStatusFilter<$PrismaModel> | $Enums.TypeStatus
-  }
-
-  export type NestedEnumTypeStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TypeStatus | EnumTypeStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TypeStatus[] | ListEnumTypeStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumTypeStatusWithAggregatesFilter<$PrismaModel> | $Enums.TypeStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTypeStatusFilter<$PrismaModel>
-    _max?: NestedEnumTypeStatusFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutRoleInput = {
@@ -11226,8 +11226,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     createdAt?: Date | string
@@ -11243,8 +11243,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     categoryId: string
@@ -11365,8 +11365,8 @@ export namespace Prisma {
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
-    image?: StringNullableFilter<"Book"> | string | null
-    pdf?: StringNullableFilter<"Book"> | string | null
+    image?: StringFilter<"Book"> | string
+    pdf?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
     userId?: StringFilter<"Book"> | string
@@ -11440,8 +11440,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     createdAt?: Date | string
@@ -11457,8 +11457,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     userId: string
@@ -11801,8 +11801,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     createdAt?: Date | string
@@ -11818,8 +11818,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     userId: string
@@ -11881,8 +11881,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11897,8 +11897,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
@@ -11992,8 +11992,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     categoryId: string
@@ -12025,8 +12025,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12041,8 +12041,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     categoryId?: StringFieldUpdateOperationsInput | string
@@ -12057,8 +12057,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     categoryId?: StringFieldUpdateOperationsInput | string
@@ -12121,8 +12121,8 @@ export namespace Prisma {
     author: string
     price: number
     stock?: number
-    image?: string | null
-    pdf?: string | null
+    image: string
+    pdf: string
     click?: number
     download?: number
     userId: string
@@ -12136,8 +12136,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12152,8 +12152,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
@@ -12168,8 +12168,8 @@ export namespace Prisma {
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    pdf?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: StringFieldUpdateOperationsInput | string
+    pdf?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string

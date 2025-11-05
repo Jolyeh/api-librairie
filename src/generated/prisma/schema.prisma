@@ -52,8 +52,8 @@ model Book {
   author       String
   price        Float
   stock        Int           @default(0)
-  image        String?
-  pdf          String?
+  image        String
+  pdf          String
   click        Int           @default(0)
   download     Int           @default(0)
   user         User          @relation(fields: [userId], references: [id])
