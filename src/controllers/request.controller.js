@@ -1,4 +1,3 @@
-import { name } from 'ejs';
 import { prisma } from '../config/prisma.js';
 import { sendEmail } from '../utils/mail.js';
 import { sendResponse } from '../utils/response.js';
