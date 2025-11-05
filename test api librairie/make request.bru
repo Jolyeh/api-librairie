@@ -1,0 +1,27 @@
+meta {
+  name: make request
+  type: http
+  seq: 18
+}
+
+post {
+  url: http://0.0.0.0:3000/api/request
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDg5NDI3NTJkMDE2Mzg5OGNhMTIyZiIsIm5hbWUiOiJQcmluY2UiLCJzdXJuYW1lIjoiQmVuIiwiZW1haWwiOiJqb2VscHJpbmNleWVoZXplQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJkL01xTU83NTNldUhEbEpXN1N6bi5KU2JDV1g4TXpRVGxqb0VYRmhFNHEwaVdTRnJwVjBPIiwicm9sZUlkIjoiNjkwNzdlNjllMTg0ZmRlYmM3YTE1ZTg4IiwiY3JlYXRlZEF0IjoiMjAyNS0xMS0wM1QxMTozODoxNS42NThaIiwidXBkYXRlZEF0IjoiMjAyNS0xMS0wM1QxMTozODoxNS42NThaIiwiaWF0IjoxNzYyMTY5ODk1LCJleHAiOjE3OTI0MDk4OTV9.EEGPYSFdq0PbgixKg5LPwWLrVGMLrO-PMvXTO7XxEsE
+}
+
+body:json {
+  {
+    "type": "Vendeur",
+    "reponse": "Lorem ipsum dolor sit amet, dolore do veniam deserunt amet proident voluptate sit. Ex aliquip dolor ullamco duis excepteur, incididunt esse quis magna in laborum. Voluptate pariatur ea proident ad mollit irure dolor. Proident voluptate cillum nostrud commodo proident voluptate, veniam elit sed anim. Et do excepteur magna. Tempor nisi ea minim. Non est cillum veniam nostrud do, elit elit anim veniam qui nisi laborum.Deserunt eiusmod dolore nisi in ad."
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

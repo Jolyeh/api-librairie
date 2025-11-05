@@ -1,0 +1,24 @@
+meta {
+  name: search book
+  type: http
+  seq: 13
+}
+
+get {
+  url: http://0.0.0.0:3000/api/book/search?query=j
+  body: none
+  auth: bearer
+}
+
+params:query {
+  query: j
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDM1YjA1ZGZlMWRlMjRlOWE3YTgwMCIsIm5hbWUiOiJKZWFuIiwic3VybmFtZSI6IkR1cG9udCIsImVtYWlsIjoiamVhbi5kdXBvbnRAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMR1U5OFJ0a3V5YUUvU2dyUjdOanVlWEZkT0VqbWEyYWY3VnFKTy5rWFBpOTZGanZEdkFJUyIsInJvbGVJZCI6IjY5MDM1NzQ2MmI2M2M4YjY3MjhjMTViMCIsImNyZWF0ZWRBdCI6IjIwMjUtMTAtMzBUMTI6MzM6MDkuMTkxWiIsInVwZGF0ZWRBdCI6IjIwMjUtMTAtMzBUMTI6MzM6MDkuMTkxWiIsImlhdCI6MTc2MTkwMDI2NCwiZXhwIjoxNzYyNTA1MDY0fQ.EqGW8gV0CR2dM1gG7iMJeZW7PiA9w9xuMkeXBNCv7E8
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

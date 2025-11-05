@@ -1,0 +1,23 @@
+meta {
+  name: login
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://0.0.0.0:3000/api/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "jeanne.dubois@example.com",
+    "password": "motdepasse123"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

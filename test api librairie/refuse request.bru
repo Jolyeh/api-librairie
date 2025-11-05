@@ -1,0 +1,26 @@
+meta {
+  name: refuse request
+  type: http
+  seq: 20
+}
+
+post {
+  url: http://0.0.0.0:3000/api/request/6908953452d0163898ca1230/refuse
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDg5NDI3NTJkMDE2Mzg5OGNhMTIyZiIsIm5hbWUiOiJQcmluY2UiLCJzdXJuYW1lIjoiQmVuIiwiZW1haWwiOiJqb2VscHJpbmNleWVoZXplQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJEJkL01xTU83NTNldUhEbEpXN1N6bi5KU2JDV1g4TXpRVGxqb0VYRmhFNHEwaVdTRnJwVjBPIiwicm9sZUlkIjoiNjkwNzdlNjllMTg0ZmRlYmM3YTE1ZTg4IiwiY3JlYXRlZEF0IjoiMjAyNS0xMS0wM1QxMTozODoxNS42NThaIiwidXBkYXRlZEF0IjoiMjAyNS0xMS0wM1QxMTozODoxNS42NThaIiwiaWF0IjoxNzYyMTY5ODk1LCJleHAiOjE3OTI0MDk4OTV9.EEGPYSFdq0PbgixKg5LPwWLrVGMLrO-PMvXTO7XxEsE
+}
+
+body:json {
+  {
+    "reason": "Vous etes deja vendeur"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

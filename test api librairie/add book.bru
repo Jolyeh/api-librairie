@@ -1,0 +1,42 @@
+meta {
+  name: add book
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://0.0.0.0:3000/api/book
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDc3ZWE1YTI2NmFiOGYwYjllNzZkMyIsIm5hbWUiOiJKZWFubmUiLCJzdXJuYW1lIjoiRHVib2lzIiwiZW1haWwiOiJqZWFubmUuZHVib2lzQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkd1ZYTjJPVzlMZVlUaFdlWjJXZ3BQZUo3V0xHWFg3QnhZR1VhMjgvUzBhdk15OVdLL2YzQk8iLCJyb2xlSWQiOiI2OTA3N2U2OWUxODRmZGViYzdhMTVlODgiLCJjcmVhdGVkQXQiOiIyMDI1LTExLTAyVDE1OjU0OjEzLjgyNVoiLCJ1cGRhdGVkQXQiOiIyMDI1LTExLTAyVDE1OjU0OjEzLjgyNVoiLCJpYXQiOjE3NjIwOTg4NTMsImV4cCI6MTc5MjMzODg1M30.HhMVfLqeHPGKOSenyWVsCSMedzziI-7YrQajmhwj6G8
+}
+
+body:json {
+  {
+    "title": "La puissance de la pensée positive",
+    "description": "c'est un livre",
+    "author": "Joel Prince",
+    "price": 2.50,
+    "categoryId": "690357472b63c8b6728c15bc",
+    "stock": 10
+  }
+}
+
+body:multipart-form {
+  title: essai
+  description: des
+  author: moi
+  price: 25.0
+  stock: 20
+  categoryId: 69077e69e184fdebc7a15e8d
+  pdf: @file(/media/joelprince/joelprince/code_du_numerique_du_benin_2018.pdf)
+  image: @file(/home/joelprince/Images/65.jpg)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
