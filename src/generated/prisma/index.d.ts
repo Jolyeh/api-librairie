@@ -4663,6 +4663,8 @@ export namespace Prisma {
     stock: number | null
     click: number | null
     download: number | null
+    pages: number | null
+    chapitres: number | null
   }
 
   export type BookSumAggregateOutputType = {
@@ -4670,6 +4672,8 @@ export namespace Prisma {
     stock: number | null
     click: number | null
     download: number | null
+    pages: number | null
+    chapitres: number | null
   }
 
   export type BookMinAggregateOutputType = {
@@ -4680,9 +4684,13 @@ export namespace Prisma {
     price: number | null
     stock: number | null
     image: string | null
-    pdf: string | null
+    file: string | null
     click: number | null
     download: number | null
+    size: string | null
+    type: string | null
+    pages: number | null
+    chapitres: number | null
     userId: string | null
     categoryId: string | null
     createdAt: Date | null
@@ -4697,9 +4705,13 @@ export namespace Prisma {
     price: number | null
     stock: number | null
     image: string | null
-    pdf: string | null
+    file: string | null
     click: number | null
     download: number | null
+    size: string | null
+    type: string | null
+    pages: number | null
+    chapitres: number | null
     userId: string | null
     categoryId: string | null
     createdAt: Date | null
@@ -4714,9 +4726,13 @@ export namespace Prisma {
     price: number
     stock: number
     image: number
-    pdf: number
+    file: number
     click: number
     download: number
+    size: number
+    type: number
+    pages: number
+    chapitres: number
     userId: number
     categoryId: number
     createdAt: number
@@ -4730,6 +4746,8 @@ export namespace Prisma {
     stock?: true
     click?: true
     download?: true
+    pages?: true
+    chapitres?: true
   }
 
   export type BookSumAggregateInputType = {
@@ -4737,6 +4755,8 @@ export namespace Prisma {
     stock?: true
     click?: true
     download?: true
+    pages?: true
+    chapitres?: true
   }
 
   export type BookMinAggregateInputType = {
@@ -4747,9 +4767,13 @@ export namespace Prisma {
     price?: true
     stock?: true
     image?: true
-    pdf?: true
+    file?: true
     click?: true
     download?: true
+    size?: true
+    type?: true
+    pages?: true
+    chapitres?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -4764,9 +4788,13 @@ export namespace Prisma {
     price?: true
     stock?: true
     image?: true
-    pdf?: true
+    file?: true
     click?: true
     download?: true
+    size?: true
+    type?: true
+    pages?: true
+    chapitres?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -4781,9 +4809,13 @@ export namespace Prisma {
     price?: true
     stock?: true
     image?: true
-    pdf?: true
+    file?: true
     click?: true
     download?: true
+    size?: true
+    type?: true
+    pages?: true
+    chapitres?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -4885,9 +4917,13 @@ export namespace Prisma {
     price: number
     stock: number
     image: string
-    pdf: string
+    file: string
     click: number
     download: number
+    size: string
+    type: string
+    pages: number | null
+    chapitres: number | null
     userId: string
     categoryId: string
     createdAt: Date
@@ -4921,9 +4957,13 @@ export namespace Prisma {
     price?: boolean
     stock?: boolean
     image?: boolean
-    pdf?: boolean
+    file?: boolean
     click?: boolean
     download?: boolean
+    size?: boolean
+    type?: boolean
+    pages?: boolean
+    chapitres?: boolean
     userId?: boolean
     categoryId?: boolean
     createdAt?: boolean
@@ -4944,16 +4984,20 @@ export namespace Prisma {
     price?: boolean
     stock?: boolean
     image?: boolean
-    pdf?: boolean
+    file?: boolean
     click?: boolean
     download?: boolean
+    size?: boolean
+    type?: boolean
+    pages?: boolean
+    chapitres?: boolean
     userId?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "stock" | "image" | "pdf" | "click" | "download" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
+  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "stock" | "image" | "file" | "click" | "download" | "size" | "type" | "pages" | "chapitres" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
   export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -4976,9 +5020,13 @@ export namespace Prisma {
       price: number
       stock: number
       image: string
-      pdf: string
+      file: string
       click: number
       download: number
+      size: string
+      type: string
+      pages: number | null
+      chapitres: number | null
       userId: string
       categoryId: string
       createdAt: Date
@@ -5385,9 +5433,13 @@ export namespace Prisma {
     readonly price: FieldRef<"Book", 'Float'>
     readonly stock: FieldRef<"Book", 'Int'>
     readonly image: FieldRef<"Book", 'String'>
-    readonly pdf: FieldRef<"Book", 'String'>
+    readonly file: FieldRef<"Book", 'String'>
     readonly click: FieldRef<"Book", 'Int'>
     readonly download: FieldRef<"Book", 'Int'>
+    readonly size: FieldRef<"Book", 'String'>
+    readonly type: FieldRef<"Book", 'String'>
+    readonly pages: FieldRef<"Book", 'Int'>
+    readonly chapitres: FieldRef<"Book", 'Int'>
     readonly userId: FieldRef<"Book", 'String'>
     readonly categoryId: FieldRef<"Book", 'String'>
     readonly createdAt: FieldRef<"Book", 'DateTime'>
@@ -8926,9 +8978,13 @@ export namespace Prisma {
     price: 'price',
     stock: 'stock',
     image: 'image',
-    pdf: 'pdf',
+    file: 'file',
     click: 'click',
     download: 'download',
+    size: 'size',
+    type: 'type',
+    pages: 'pages',
+    chapitres: 'chapitres',
     userId: 'userId',
     categoryId: 'categoryId',
     createdAt: 'createdAt',
@@ -9272,9 +9328,13 @@ export namespace Prisma {
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
-    pdf?: StringFilter<"Book"> | string
+    file?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    size?: StringFilter<"Book"> | string
+    type?: StringFilter<"Book"> | string
+    pages?: IntNullableFilter<"Book"> | number | null
+    chapitres?: IntNullableFilter<"Book"> | number | null
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -9292,9 +9352,13 @@ export namespace Prisma {
     price?: SortOrder
     stock?: SortOrder
     image?: SortOrder
-    pdf?: SortOrder
+    file?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    size?: SortOrder
+    type?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -9315,9 +9379,13 @@ export namespace Prisma {
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
-    pdf?: StringFilter<"Book"> | string
+    file?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    size?: StringFilter<"Book"> | string
+    type?: StringFilter<"Book"> | string
+    pages?: IntNullableFilter<"Book"> | number | null
+    chapitres?: IntNullableFilter<"Book"> | number | null
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -9335,9 +9403,13 @@ export namespace Prisma {
     price?: SortOrder
     stock?: SortOrder
     image?: SortOrder
-    pdf?: SortOrder
+    file?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    size?: SortOrder
+    type?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -9360,9 +9432,13 @@ export namespace Prisma {
     price?: FloatWithAggregatesFilter<"Book"> | number
     stock?: IntWithAggregatesFilter<"Book"> | number
     image?: StringWithAggregatesFilter<"Book"> | string
-    pdf?: StringWithAggregatesFilter<"Book"> | string
+    file?: StringWithAggregatesFilter<"Book"> | string
     click?: IntWithAggregatesFilter<"Book"> | number
     download?: IntWithAggregatesFilter<"Book"> | number
+    size?: StringWithAggregatesFilter<"Book"> | string
+    type?: StringWithAggregatesFilter<"Book"> | string
+    pages?: IntNullableWithAggregatesFilter<"Book"> | number | null
+    chapitres?: IntNullableWithAggregatesFilter<"Book"> | number | null
     userId?: StringWithAggregatesFilter<"Book"> | string
     categoryId?: StringWithAggregatesFilter<"Book"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Book"> | Date | string
@@ -9747,9 +9823,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -9765,9 +9845,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -9782,9 +9866,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -9799,9 +9887,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9817,9 +9909,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -9833,9 +9929,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9847,9 +9947,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10250,6 +10354,18 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -10268,9 +10384,13 @@ export namespace Prisma {
     price?: SortOrder
     stock?: SortOrder
     image?: SortOrder
-    pdf?: SortOrder
+    file?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    size?: SortOrder
+    type?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -10282,6 +10402,8 @@ export namespace Prisma {
     stock?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
   }
 
   export type BookMaxOrderByAggregateInput = {
@@ -10292,9 +10414,13 @@ export namespace Prisma {
     price?: SortOrder
     stock?: SortOrder
     image?: SortOrder
-    pdf?: SortOrder
+    file?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    size?: SortOrder
+    type?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -10309,9 +10435,13 @@ export namespace Prisma {
     price?: SortOrder
     stock?: SortOrder
     image?: SortOrder
-    pdf?: SortOrder
+    file?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    size?: SortOrder
+    type?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -10323,6 +10453,8 @@ export namespace Prisma {
     stock?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    pages?: SortOrder
+    chapitres?: SortOrder
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -10355,6 +10487,23 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
   export type EnumTypeStatusFilter<$PrismaModel = never> = {
@@ -10791,6 +10940,15 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+    unset?: boolean
+  }
+
   export type UserUpdateOneRequiredWithoutBooksNestedInput = {
     create?: XOR<UserCreateWithoutBooksInput, UserUncheckedCreateWithoutBooksInput>
     connectOrCreate?: UserCreateOrConnectWithoutBooksInput
@@ -11041,6 +11199,18 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -11071,6 +11241,35 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+    isSet?: boolean
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
   }
 
   export type NestedEnumTypeStatusFilter<$PrismaModel = never> = {
@@ -11120,18 +11319,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-    isSet?: boolean
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
     isSet?: boolean
   }
 
@@ -11227,9 +11414,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutBooksInput
@@ -11244,9 +11435,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11366,9 +11561,13 @@ export namespace Prisma {
     price?: FloatFilter<"Book"> | number
     stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
-    pdf?: StringFilter<"Book"> | string
+    file?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    size?: StringFilter<"Book"> | string
+    type?: StringFilter<"Book"> | string
+    pages?: IntNullableFilter<"Book"> | number | null
+    chapitres?: IntNullableFilter<"Book"> | number | null
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -11441,9 +11640,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -11458,9 +11661,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11802,9 +12009,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -11819,9 +12030,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -11882,9 +12097,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -11898,9 +12117,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11993,9 +12216,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12026,9 +12253,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutBooksNestedInput
@@ -12042,9 +12273,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12058,9 +12293,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12122,9 +12361,13 @@ export namespace Prisma {
     price: number
     stock?: number
     image: string
-    pdf: string
+    file: string
     click?: number
     download?: number
+    size: string
+    type: string
+    pages?: number | null
+    chapitres?: number | null
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12137,9 +12380,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -12153,9 +12400,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12169,9 +12420,13 @@ export namespace Prisma {
     price?: FloatFieldUpdateOperationsInput | number
     stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
-    pdf?: StringFieldUpdateOperationsInput | string
+    file?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    size?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    pages?: NullableIntFieldUpdateOperationsInput | number | null
+    chapitres?: NullableIntFieldUpdateOperationsInput | number | null
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

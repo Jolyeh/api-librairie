@@ -4,7 +4,7 @@ import { authMiddleware } from '../middlewares/auth.middleware.js';
 
 const categoryRoutes = express.Router();
 
-categoryRoutes.get('/', authMiddleware, getAllCategory);
+categoryRoutes.get('/', getAllCategory);
 categoryRoutes.post('/', authMiddleware, addCategory);
 categoryRoutes.put('/:categoryId', authMiddleware, updateCategory);
 categoryRoutes.delete('/:categoryId', authMiddleware, deleteCategory);

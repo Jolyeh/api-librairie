@@ -16,7 +16,7 @@ bookRoutes.get('/category/:categoryId', authMiddleware, getBooksByCategory);
 bookRoutes.post('/',
     upload.fields([
         { name: "image", maxCount: 1 },
-        { name: "pdf", maxCount: 1 },
+        { name: "file", maxCount: 1 },
     ]),
     authMiddleware,
     handleMulterError,

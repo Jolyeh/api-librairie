@@ -1,0 +1,27 @@
+meta {
+  name: aze
+  type: http
+  seq: 23
+}
+
+post {
+  url: http://192.168.100.52:3000/send-mail
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "joelprinceyeheze@gmail.com",
+    "nom": "joel",
+    "prenom": "prince",
+    "service": "App",
+    "message": "Bonjour",
+    "telephone": "01944031"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
