@@ -125,14 +125,14 @@ export const addBook = async (req, res) => {
     const bookFile = req.files.file[0];
 
     // ✅ Autoriser uniquement PDF et EPUB
-    const allowedMimeTypes = ["application/pdf", "application/epub+zip"];
+    /* const allowedMimeTypes = ["application/pdf", "application/epub+zip"];
     if (!allowedMimeTypes.includes(bookFile.mimetype)) {
       return sendResponse(
         res,
         false,
         "Format non autorisé. Seuls les fichiers PDF et EPUB sont acceptés."
       );
-    }
+    } */
 
     // ✅ Donner un nom unique au fichier avant upload
     const uniqueName = `${Date.now()}-${path.parse(bookFile.originalname).name}`;
