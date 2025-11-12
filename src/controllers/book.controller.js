@@ -65,6 +65,25 @@ export const getBooksByUser = async (req, res) => {
     return sendResponse(res, true, 'Liste des livres de l\'utilisateur', books);
 }
 
+export const getFavoriteBooks = async (req, res) => {
+    const favorites = await prisma.favorite.findMany({
+        where: {
+            userId: req.user.id,
+        },
+        include: {
+            book: {
+                include: {
+                    category: true,
+                },
+            },
+        },
+    });
+
+    const favoriteBooks = favorites.map(fav => fav.book);
+
+    return sendResponse(res, true, 'Liste des livres favoris', favoriteBooks);
+}
+
 export const searchBooks = async (req, res) => {
     const { query } = req.query;
 
@@ -152,6 +171,41 @@ export const addBook = async (req, res) => {
     return sendResponse(res, false, "Erreur serveur : " + e.message);
   }
 };
+
+export const toggleFavorites = async (req, res) => {
+    const { bookId } = req.params;
+    
+    const book = await prisma.book.findUnique({
+        where: { id: bookId }
+    });
+
+    if (!book) {
+        return sendResponse(res, false, 'Livre non trouvé.');
+    }
+
+    const existingFavorite = await prisma.favorite.findFirst({
+        where: {
+            userId: req.user.id,
+            bookId: bookId
+        }
+    });
+
+    if (existingFavorite) {
+        await prisma.favorite.delete({
+            where: { id: existingFavorite.id }
+        });
+        return sendResponse(res, true, 'Livre retiré des favoris.');
+    } else {
+        await prisma.favorite.create({
+            data: {
+                userId: req.user.id,
+                bookId: bookId
+            }
+        });
+        return sendResponse(res, true, 'Livre ajouté aux favoris.');
+    }
+    
+}
 
 export const deleteBook = async (req, res) => {
     const { bookId } = req.params;

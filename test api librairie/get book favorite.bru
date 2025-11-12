@@ -1,0 +1,31 @@
+meta {
+  name: get book favorite
+  type: http
+  seq: 25
+}
+
+get {
+  url: http://0.0.0.0:3000/api/book/favorites
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MTMwYWMyYTJkYjY2MTE2NzNkOGVkZSIsIm5hbWUiOiJQcmluY2UiLCJzdXJuYW1lIjoiQmVuIiwiZW1haWwiOiJqb2VscHJpbmNleWVoZXplQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJFJqS0x5NHByekpvYUozaVN6YS9WMWVYLlhGLnVPYUZiMWU2S25yWjZ0U2JtSnd5a3E4UGJtIiwicm9sZUlkIjoiNjkwYjU3Y2E4ODFhOTU1ODk3YWJlNGZmIiwiY3JlYXRlZEF0IjoiMjAyNS0xMS0xMVQxMDowNjo1OC44MTNaIiwidXBkYXRlZEF0IjoiMjAyNS0xMS0xMVQxMDowNjo1OC44MTNaIiwicm9sZSI6eyJpZCI6IjY5MGI1N2NhODgxYTk1NTg5N2FiZTRmZiIsIm5hbWUiOiJCVVlFUiIsImNyZWF0ZWRBdCI6IjIwMjUtMTEtMDVUMTM6NTc6MzAuMjI3WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTEtMDVUMTM6NTc6MzAuMjI3WiJ9LCJpYXQiOjE3NjI5Mzk2ODAsImV4cCI6MTc5MzE3OTY4MH0.gn-XnSYmhB4zOSjPlTUp2SUHywGfrTw1UYvQ9UnOgOg
+}
+
+body:json {
+  {
+    "title": "La puissance de la pensée positive",
+    "description": "c'est un livre",
+    "author": "Joel Prince",
+    "price": 2.50,
+    "categoryId": "690357472b63c8b6728c15bc",
+    "stock": 10
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import { addBook, deleteBook, getAllBooks, getBookById, getBooksByCategory, getBooksByUser, searchBooks, updateBook } from '../controllers/book.controller.js';
+import { addBook, deleteBook, toggleFavorites, getFavoriteBooks, getAllBooks, getBookById, getBooksByCategory, getBooksByUser, searchBooks, updateBook } from '../controllers/book.controller.js';
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { upload } from '../utils/upload.js';
 import { handleMulterError } from '../middlewares/handleMulterError.js';
@@ -8,10 +8,12 @@ import { handleMulterError } from '../middlewares/handleMulterError.js';
 
 const bookRoutes = express.Router();
 
+bookRoutes.get('/user/me', authMiddleware, getBooksByUser);
+bookRoutes.get('/favorites', authMiddleware, getFavoriteBooks);
 bookRoutes.get('/', getAllBooks);
 bookRoutes.get('/search', authMiddleware, searchBooks);
 bookRoutes.get('/:bookId', authMiddleware, getBookById);
-bookRoutes.get('/user/me', authMiddleware, getBooksByUser);
+
 bookRoutes.get('/category/:categoryId', authMiddleware, getBooksByCategory);
 bookRoutes.post('/',
     upload.fields([
@@ -22,6 +24,8 @@ bookRoutes.post('/',
     handleMulterError,
     addBook
 );
+
+bookRoutes.post('/favorites/:bookId', authMiddleware, toggleFavorites);
 bookRoutes.put('/:bookId', authMiddleware, updateBook);
 bookRoutes.delete('/:bookId', authMiddleware, deleteBook);
 

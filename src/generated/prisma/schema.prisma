@@ -34,6 +34,7 @@ model User {
   books        Book[]
   requests     Request[]
   transactions Transaction[]
+  favorites    favorite[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 }
@@ -65,9 +66,20 @@ model Book {
   userId       String        @db.ObjectId
   category     Category      @relation(fields: [categoryId], references: [id])
   transactions Transaction[]
+  favorites    favorite[]
   categoryId   String        @db.ObjectId
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+}
+
+model favorite {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  bookId    String   @db.ObjectId
+  book      Book     @relation(fields: [bookId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum TypeStatus {

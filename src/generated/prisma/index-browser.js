@@ -159,6 +159,14 @@ exports.Prisma.BookScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.FavoriteScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  bookId: 'bookId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.StatusScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -212,6 +220,7 @@ exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
   Book: 'Book',
+  favorite: 'favorite',
   Status: 'Status',
   Request: 'Request',
   Transaction: 'Transaction'
