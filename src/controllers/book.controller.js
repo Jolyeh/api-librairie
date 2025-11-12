@@ -109,10 +109,10 @@ export const searchBooks = async (req, res) => {
 
 export const addBook = async (req, res) => {
   try {
-    const { title, description, author, price, stock, categoryId, size, pages, chapitres, type } = req.body;
+    const { title, description, author, price, categoryId, size, pages, chapitres, type } = req.body;
 
     // ✅ Vérification des champs obligatoires
-    if (!title || !description || !author || !price || !stock || !categoryId || !size || !pages || !chapitres || !type) {
+    if (!title || !description || !author || !price || !categoryId || !size || !pages || !chapitres || !type) {
       return sendResponse(res, false, "Veuillez remplir tous les champs.");
     }
 
@@ -152,7 +152,6 @@ export const addBook = async (req, res) => {
         description,
         author,
         price: parseFloat(price),
-        stock: parseInt(stock),
         image: imageResult.secure_url,
         file: fileResult.secure_url,
         type: bookFile.mimetype,
