@@ -16,6 +16,15 @@ export const getAllBooks = async (req, res) => {
     return sendResponse(res, true, 'Liste des livres', books);
 }
 
+export const getAllBooksAdmin = async (req, res) => {
+    const books = await prisma.book.findMany({
+        include: {
+            category: true,
+        }
+    });
+    return sendResponse(res, true, 'Liste des livres', books);
+}
+
 export const getBooksByCategory = async (req, res) => {
     const { categoryId } = req.params;
     const books = await prisma.book.findMany({
@@ -77,7 +86,9 @@ export const getFavoriteBooks = async (req, res) => {
     const favorites = await prisma.favorite.findMany({
         where: {
             userId: req.user.id,
-            isDelete: false
+            book: {
+                isDelete: false
+            }
         },
         include: {
             book: {
@@ -118,72 +129,72 @@ export const searchBooks = async (req, res) => {
 };
 
 export const addBook = async (req, res) => {
-  try {
-    const { title, description, author, price, categoryId, size, pages, chapitres, type } = req.body;
+    try {
+        const { title, description, author, price, categoryId, size, pages, chapitres, type } = req.body;
 
-    // ✅ Vérification des champs obligatoires
-    if (!title || !description || !author || !price || !categoryId || !size || !pages || !chapitres || !type) {
-      return sendResponse(res, false, "Veuillez remplir tous les champs.");
+        // ✅ Vérification des champs obligatoires
+        if (!title || !description || !author || !price || !categoryId || !size || !pages || !chapitres || !type) {
+            return sendResponse(res, false, "Veuillez remplir tous les champs.");
+        }
+
+        // ✅ Vérification des fichiers
+        if (!req.files || !req.files.image || !req.files.file) {
+            return sendResponse(res, false, "Image et fichier (PDF/EPUB) requis.");
+        }
+
+        const imageFile = req.files.image[0];
+        const bookFile = req.files.file[0];
+
+        // ✅ Autoriser uniquement PDF et EPUB
+        /* const allowedMimeTypes = ["application/pdf", "application/epub+zip"];
+        if (!allowedMimeTypes.includes(bookFile.mimetype)) {
+          return sendResponse(
+            res,
+            false,
+            "Format non autorisé. Seuls les fichiers PDF et EPUB sont acceptés."
+          );
+        } */
+
+        // ✅ Donner un nom unique au fichier avant upload
+        const uniqueName = `${Date.now()}-${path.parse(bookFile.originalname).name}`;
+
+        // ✅ Upload des fichiers vers Cloudinary
+        const imageResult = await uploadToCloudinary(imageFile.buffer, "books/images", "image");
+        const fileResult = await uploadToCloudinary(bookFile.buffer, "books/files", "raw", uniqueName);
+
+        if (!imageResult?.secure_url || !fileResult?.secure_url) {
+            return sendResponse(res, false, "Erreur lors de l'upload des fichiers.");
+        }
+
+        // ✅ Création du livre dans la base
+        const newBook = await prisma.book.create({
+            data: {
+                title,
+                description,
+                author,
+                price: parseFloat(price),
+                image: imageResult.secure_url,
+                file: fileResult.secure_url,
+                type: bookFile.mimetype,
+                userId: req.user.id,
+                categoryId,
+                size,
+                type,
+                pages,
+                chapitres
+            },
+        });
+
+        return sendResponse(res, true, "Livre ajouté avec succès", newBook);
+    } catch (e) {
+        console.error("Erreur lors de l'ajout du livre :", e);
+        return sendResponse(res, false, "Erreur serveur : " + e.message);
     }
-
-    // ✅ Vérification des fichiers
-    if (!req.files || !req.files.image || !req.files.file) {
-      return sendResponse(res, false, "Image et fichier (PDF/EPUB) requis.");
-    }
-
-    const imageFile = req.files.image[0];
-    const bookFile = req.files.file[0];
-
-    // ✅ Autoriser uniquement PDF et EPUB
-    /* const allowedMimeTypes = ["application/pdf", "application/epub+zip"];
-    if (!allowedMimeTypes.includes(bookFile.mimetype)) {
-      return sendResponse(
-        res,
-        false,
-        "Format non autorisé. Seuls les fichiers PDF et EPUB sont acceptés."
-      );
-    } */
-
-    // ✅ Donner un nom unique au fichier avant upload
-    const uniqueName = `${Date.now()}-${path.parse(bookFile.originalname).name}`;
-
-    // ✅ Upload des fichiers vers Cloudinary
-    const imageResult = await uploadToCloudinary(imageFile.buffer, "books/images", "image");
-    const fileResult = await uploadToCloudinary(bookFile.buffer, "books/files", "raw", uniqueName);
-
-    if (!imageResult?.secure_url || !fileResult?.secure_url) {
-      return sendResponse(res, false, "Erreur lors de l'upload des fichiers.");
-    }
-
-    // ✅ Création du livre dans la base
-    const newBook = await prisma.book.create({
-      data: {
-        title,
-        description,
-        author,
-        price: parseFloat(price),
-        image: imageResult.secure_url,
-        file: fileResult.secure_url,
-        type: bookFile.mimetype,
-        userId: req.user.id,
-        categoryId,
-        size,
-        type,
-        pages,
-        chapitres
-      },
-    });
-
-    return sendResponse(res, true, "Livre ajouté avec succès", newBook);
-  } catch (e) {
-    console.error("Erreur lors de l'ajout du livre :", e);
-    return sendResponse(res, false, "Erreur serveur : " + e.message);
-  }
 };
 
 export const toggleFavorites = async (req, res) => {
     const { bookId } = req.params;
-    
+
     const book = await prisma.book.findUnique({
         where: { id: bookId }
     });
@@ -213,7 +224,7 @@ export const toggleFavorites = async (req, res) => {
         });
         return sendResponse(res, true, 'Livre ajouté aux favoris.');
     }
-    
+
 }
 
 export const deleteBook = async (req, res) => {
@@ -254,7 +265,7 @@ export const turnInDelete = async (req, res) => {
     }
 
     await prisma.book.update({
-        where:{
+        where: {
             id: bookId
         },
         data: {
