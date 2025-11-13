@@ -12,7 +12,7 @@ export function authMiddleware(req, res, next) {
     try {
         const decoded = verifyToken(token);
         if (!decoded) {
-            return sendResponse(res, false, 'Token invalide ou expiré.');
+            return sendResponse(res, false, 'Token invalide ou expiré. Veuillez vous reconnectez');
         }
         req.user = decoded;
         next();

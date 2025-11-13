@@ -88,3 +88,45 @@ export const deleteUser = async (req, res) => {
         return sendResponse(res, false, 'Une erreur est survenue lors de la suppression de l\'utilisateur.');
     }
 }
+
+export const updateUser = async (req, res) => {
+    try {
+        const { name, surname, email } = req.body;
+
+        if (!name || !surname || !email) {
+            return sendResponse(res, false, 'Veuillez remplir tous les champs.');
+        }
+
+        let user = await prisma.user.findUnique({ where: { id: req.user.id } });
+
+        if (!user) {
+            return sendResponse(res, false, 'Utilisateur non trouvé.');
+        }
+
+        if (email != user.email) {
+            const existingEmail = await prisma.user.findUnique({ where: { email } });
+
+            if (existingEmail) {
+                return sendResponse(res, false, 'Cet email existe déjà.');
+            }
+        }
+
+
+        user = await prisma.user.update({
+            where: {
+                id: req.user.id
+            },
+            data: {
+                name,
+                surname,
+                email
+            }
+        });
+
+        return sendResponse(res, true, "Profil mise à jour");
+
+    } catch (error) {
+        console.error('Erreur :', error);
+        return sendResponse(res, false, 'Une erreur est survenue lors de la mise à jour du profil.');
+    }
+}
