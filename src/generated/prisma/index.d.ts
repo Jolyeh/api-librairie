@@ -4824,6 +4824,7 @@ export namespace Prisma {
     type: string | null
     click: number | null
     download: number | null
+    isDelete: boolean | null
     userId: string | null
     categoryId: string | null
     createdAt: Date | null
@@ -4845,6 +4846,7 @@ export namespace Prisma {
     type: string | null
     click: number | null
     download: number | null
+    isDelete: boolean | null
     userId: string | null
     categoryId: string | null
     createdAt: Date | null
@@ -4866,6 +4868,7 @@ export namespace Prisma {
     type: number
     click: number
     download: number
+    isDelete: number
     userId: number
     categoryId: number
     createdAt: number
@@ -4903,6 +4906,7 @@ export namespace Prisma {
     type?: true
     click?: true
     download?: true
+    isDelete?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -4924,6 +4928,7 @@ export namespace Prisma {
     type?: true
     click?: true
     download?: true
+    isDelete?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -4945,6 +4950,7 @@ export namespace Prisma {
     type?: true
     click?: true
     download?: true
+    isDelete?: true
     userId?: true
     categoryId?: true
     createdAt?: true
@@ -5053,6 +5059,7 @@ export namespace Prisma {
     type: string
     click: number
     download: number
+    isDelete: boolean
     userId: string
     categoryId: string
     createdAt: Date
@@ -5093,6 +5100,7 @@ export namespace Prisma {
     type?: boolean
     click?: boolean
     download?: boolean
+    isDelete?: boolean
     userId?: boolean
     categoryId?: boolean
     createdAt?: boolean
@@ -5121,13 +5129,14 @@ export namespace Prisma {
     type?: boolean
     click?: boolean
     download?: boolean
+    isDelete?: boolean
     userId?: boolean
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "stock" | "image" | "file" | "size" | "pages" | "chapitres" | "type" | "click" | "download" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
+  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "stock" | "image" | "file" | "size" | "pages" | "chapitres" | "type" | "click" | "download" | "isDelete" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
   export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -5159,6 +5168,7 @@ export namespace Prisma {
       type: string
       click: number
       download: number
+      isDelete: boolean
       userId: string
       categoryId: string
       createdAt: Date
@@ -5573,6 +5583,7 @@ export namespace Prisma {
     readonly type: FieldRef<"Book", 'String'>
     readonly click: FieldRef<"Book", 'Int'>
     readonly download: FieldRef<"Book", 'Int'>
+    readonly isDelete: FieldRef<"Book", 'Boolean'>
     readonly userId: FieldRef<"Book", 'String'>
     readonly categoryId: FieldRef<"Book", 'String'>
     readonly createdAt: FieldRef<"Book", 'DateTime'>
@@ -10125,6 +10136,7 @@ export namespace Prisma {
     type: 'type',
     click: 'click',
     download: 'download',
+    isDelete: 'isDelete',
     userId: 'userId',
     categoryId: 'categoryId',
     createdAt: 'createdAt',
@@ -10269,6 +10281,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -10489,6 +10508,7 @@ export namespace Prisma {
     type?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    isDelete?: BoolFilter<"Book"> | boolean
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -10514,6 +10534,7 @@ export namespace Prisma {
     type?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    isDelete?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -10542,6 +10563,7 @@ export namespace Prisma {
     type?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    isDelete?: BoolFilter<"Book"> | boolean
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -10567,6 +10589,7 @@ export namespace Prisma {
     type?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    isDelete?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -10596,6 +10619,7 @@ export namespace Prisma {
     type?: StringWithAggregatesFilter<"Book"> | string
     click?: IntWithAggregatesFilter<"Book"> | number
     download?: IntWithAggregatesFilter<"Book"> | number
+    isDelete?: BoolWithAggregatesFilter<"Book"> | boolean
     userId?: StringWithAggregatesFilter<"Book"> | string
     categoryId?: StringWithAggregatesFilter<"Book"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Book"> | Date | string
@@ -11049,6 +11073,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -11072,6 +11097,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -11094,6 +11120,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -11116,6 +11143,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11139,6 +11167,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -11159,6 +11188,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -11177,6 +11207,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11637,6 +11668,11 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -11662,6 +11698,7 @@ export namespace Prisma {
     type?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    isDelete?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -11690,6 +11727,7 @@ export namespace Prisma {
     type?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    isDelete?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -11711,6 +11749,7 @@ export namespace Prisma {
     type?: SortOrder
     click?: SortOrder
     download?: SortOrder
+    isDelete?: SortOrder
     userId?: SortOrder
     categoryId?: SortOrder
     createdAt?: SortOrder
@@ -11754,6 +11793,14 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type BookScalarRelationFilter = {
@@ -12270,6 +12317,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type UserUpdateOneRequiredWithoutBooksNestedInput = {
     create?: XOR<UserCreateWithoutBooksInput, UserUncheckedCreateWithoutBooksInput>
     connectOrCreate?: UserCreateOrConnectWithoutBooksInput
@@ -12576,6 +12627,11 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -12606,6 +12662,14 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedEnumTypeStatusFilter<$PrismaModel = never> = {
@@ -12771,6 +12835,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutBooksInput
@@ -12793,6 +12858,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -12943,6 +13009,7 @@ export namespace Prisma {
     type?: StringFilter<"Book"> | string
     click?: IntFilter<"Book"> | number
     download?: IntFilter<"Book"> | number
+    isDelete?: BoolFilter<"Book"> | boolean
     userId?: StringFilter<"Book"> | string
     categoryId?: StringFilter<"Book"> | string
     createdAt?: DateTimeFilter<"Book"> | Date | string
@@ -13049,6 +13116,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -13071,6 +13139,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13345,6 +13414,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -13367,6 +13437,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -13441,6 +13512,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -13462,6 +13534,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13639,6 +13712,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutBooksInput
@@ -13661,6 +13735,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     categoryId: string
     createdAt?: Date | string
@@ -13731,6 +13806,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -13752,6 +13828,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13856,6 +13933,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     categoryId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13900,6 +13978,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutBooksNestedInput
@@ -13921,6 +14000,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13942,6 +14022,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     categoryId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14028,6 +14109,7 @@ export namespace Prisma {
     type: string
     click?: number
     download?: number
+    isDelete?: boolean
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -14047,6 +14129,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBooksNestedInput
@@ -14068,6 +14151,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14089,6 +14173,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     click?: IntFieldUpdateOperationsInput | number
     download?: IntFieldUpdateOperationsInput | number
+    isDelete?: BoolFieldUpdateOperationsInput | boolean
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

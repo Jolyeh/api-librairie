@@ -1,5 +1,5 @@
 import express from 'express';
-import { addBook, deleteBook, toggleFavorites, getFavoriteBooks, getAllBooks, getBookById, getBooksByCategory, getBooksByUser, searchBooks, updateBook } from '../controllers/book.controller.js';
+import { addBook, deleteBook, toggleFavorites, getFavoriteBooks, getAllBooks, getBookById, getBooksByCategory, getBooksByUser, searchBooks, updateBook, turnInDelete } from '../controllers/book.controller.js';
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { upload } from '../utils/upload.js';
 import { handleMulterError } from '../middlewares/handleMulterError.js';
@@ -28,5 +28,6 @@ bookRoutes.post('/',
 bookRoutes.post('/favorites/:bookId', authMiddleware, toggleFavorites);
 bookRoutes.put('/:bookId', authMiddleware, updateBook);
 bookRoutes.delete('/:bookId', authMiddleware, deleteBook);
+bookRoutes.put('/turnInDelete/:bookId', authMiddleware, turnInDelete);
 
 export default bookRoutes;

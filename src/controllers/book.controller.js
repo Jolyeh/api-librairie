@@ -9,6 +9,9 @@ export const getAllBooks = async (req, res) => {
         include: {
             category: true,
         },
+        where: {
+            isDelete: false
+        }
     });
     return sendResponse(res, true, 'Liste des livres', books);
 }
@@ -21,6 +24,7 @@ export const getBooksByCategory = async (req, res) => {
         },
         where: {
             categoryId: categoryId,
+            isDelete: false
         },
     });
     return sendResponse(res, true, 'Liste des livres par catégorie', books);
@@ -31,9 +35,11 @@ export const getBookById = async (req, res) => {
     const book = await prisma.book.findUnique({
         where: {
             id: bookId,
+            isDelete: false
         },
         include: {
-            category: true,
+            category: true
+
         },
     });
 
@@ -46,7 +52,8 @@ export const getBookById = async (req, res) => {
             click: { increment: 1 }
         },
         where: {
-            id: bookId
+            id: bookId,
+            isDelete: false
         }
     });
 
@@ -57,6 +64,7 @@ export const getBooksByUser = async (req, res) => {
     const books = await prisma.book.findMany({
         where: {
             userId: req.user.id,
+            isDelete: false
         },
         include: {
             category: true,
@@ -69,6 +77,7 @@ export const getFavoriteBooks = async (req, res) => {
     const favorites = await prisma.favorite.findMany({
         where: {
             userId: req.user.id,
+            isDelete: false
         },
         include: {
             book: {
@@ -98,6 +107,7 @@ export const searchBooks = async (req, res) => {
                 { author: { contains: query, mode: 'insensitive' } },
                 { description: { contains: query, mode: 'insensitive' } },
             ],
+            isDelete: false
         },
         include: {
             category: true,
@@ -217,13 +227,40 @@ export const deleteBook = async (req, res) => {
         return sendResponse(res, false, 'Livre non trouvé.');
     }
 
-    if (book.userId !== req.user.id && req.user.role.name !== 'ADMIN') {
+    if (req.user.role.name !== 'ADMIN') {
         return sendResponse(res, false, "Vous n'êtes pas autorisé à supprimer ce livre.");
     }
 
     await prisma.book.delete({
         where: { id: bookId }
     });
+
+    return sendResponse(res, true, 'Livre supprimé avec succès.');
+}
+
+export const turnInDelete = async (req, res) => {
+    const { bookId } = req.params;
+
+    const book = await prisma.book.findUnique({
+        where: { id: bookId }
+    });
+
+    if (!book) {
+        return sendResponse(res, false, 'Livre non trouvé.');
+    }
+
+    if (book.userId !== req.user.id && req.user.role.name !== 'ADMIN') {
+        return sendResponse(res, false, "Vous n'êtes pas autorisé à supprimer ce livre.");
+    }
+
+    await prisma.book.update({
+        where:{
+            id: bookId
+        },
+        data: {
+            isDelete: true
+        }
+    })
 
     return sendResponse(res, true, 'Livre supprimé avec succès.');
 }

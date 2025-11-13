@@ -1,12 +1,12 @@
 meta {
-  name: add book
+  name: turn book delete
   type: http
-  seq: 3
+  seq: 26
 }
 
-post {
-  url: http://0.0.0.0:3000/api/book
-  body: multipartForm
+put {
+  url: http://0.0.0.0:3000/api/book/turnInDelete/69158f73e76d0ed2b4101b9b
+  body: json
   auth: bearer
 }
 
@@ -14,30 +14,13 @@ auth:bearer {
   token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MTMwYWMyYTJkYjY2MTE2NzNkOGVkZSIsIm5hbWUiOiJQcmluY2UiLCJzdXJuYW1lIjoiQmVuIiwiZW1haWwiOiJqb2VscHJpbmNleWVoZXplQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJFJqS0x5NHByekpvYUozaVN6YS9WMWVYLlhGLnVPYUZiMWU2S25yWjZ0U2JtSnd5a3E4UGJtIiwicm9sZUlkIjoiNjkwYjU3Y2E4ODFhOTU1ODk3YWJlNGZmIiwiY3JlYXRlZEF0IjoiMjAyNS0xMS0xMVQxMDowNjo1OC44MTNaIiwidXBkYXRlZEF0IjoiMjAyNS0xMS0xMVQxMDowNjo1OC44MTNaIiwicm9sZSI6eyJpZCI6IjY5MGI1N2NhODgxYTk1NTg5N2FiZTRmZiIsIm5hbWUiOiJCVVlFUiIsImNyZWF0ZWRBdCI6IjIwMjUtMTEtMDVUMTM6NTc6MzAuMjI3WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTEtMDVUMTM6NTc6MzAuMjI3WiJ9LCJpYXQiOjE3NjMwMjAyNjksImV4cCI6MTc5MzI2MDI2OX0.YHRhhUeyzKxBUuljkjvrgYGIBhvjWfnsDw-VbPhX9iA
 }
 
-body:json {
-  {
-    "title": "La puissance de la pensée positive",
-    "description": "c'est un livre",
-    "author": "Joel Prince",
-    "price": 2.50,
-    "categoryId": "690357472b63c8b6728c15bc",
-    "stock": 10
-  }
-}
-
 body:multipart-form {
-  title: Pourquoi moi ?
-  description: Pour gagner facilement de l'argent, Boladji oblige sa femme, Asaké à passer la nuit avec un riche homme d'affaires contre quinze millions de francs.
-  author: Abdel Hakim A. Laleye
-  price: 1500
-  stock: 20
-  categoryId: 690b57ce881a955897abe506
-  file: @file(/home/joelprince/Téléchargements/Brown Dan - Le secret des secrets.epub)
-  image: @file(/home/joelprince/Téléchargements/img_main_sm.webp)
-  size: 20 mo
-  type: epub
-  pages: 0
-  chapitres: 13
+  title: Pourquoi moi
+  description: Livre de quelqu'un
+  author: Abdel Hakim
+  price: 5.0
+  stock: 200
+  categoryId: 690357462b63c8b6728c15b2
 }
 
 settings {

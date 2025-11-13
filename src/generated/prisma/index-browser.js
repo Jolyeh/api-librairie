@@ -153,6 +153,7 @@ exports.Prisma.BookScalarFieldEnum = {
   type: 'type',
   click: 'click',
   download: 'download',
+  isDelete: 'isDelete',
   userId: 'userId',
   categoryId: 'categoryId',
   createdAt: 'createdAt',

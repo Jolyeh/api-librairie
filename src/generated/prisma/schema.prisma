@@ -62,6 +62,7 @@ model Book {
   type         String
   click        Int           @default(0)
   download     Int           @default(0)
+  isDelete     Boolean       @default(false)
   user         User          @relation(fields: [userId], references: [id])
   userId       String        @db.ObjectId
   category     Category      @relation(fields: [categoryId], references: [id])
