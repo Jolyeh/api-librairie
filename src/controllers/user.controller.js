@@ -123,7 +123,7 @@ export const updateUser = async (req, res) => {
             }
         });
 
-        return sendResponse(res, true, "Profil mise à jour");
+        return sendResponse(res, true, "Profil mise à jour", user);
 
     } catch (error) {
         console.error('Erreur :', error);
