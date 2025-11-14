@@ -130,3 +130,23 @@ export const updateUser = async (req, res) => {
         return sendResponse(res, false, 'Une erreur est survenue lors de la mise à jour du profil.');
     }
 }
+
+export const getRole = async (req, res) => {
+    try {
+        const role = await prisma.role.findFirst({
+            where: {
+                id: req.user.role.id
+            }
+        });
+
+        if(!role){
+            return sendResponse(res, false, 'Pas de role');
+        }
+
+        return sendResponse(res, true, "Role récupéré", role);
+    } catch (error) {
+        console.error('Erreur lors:', error);
+        return sendResponse(res, false, 'Une erreur est survenue lors de la récupération.');
+    }
+
+}
