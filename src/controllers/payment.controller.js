@@ -21,6 +21,7 @@ export const createPayment = async (req, res) => {
             customer: {
                 email: req.user.email,
                 firstname: req.user.name,
+                lastname: req.user.surname,
             },
         });
 
