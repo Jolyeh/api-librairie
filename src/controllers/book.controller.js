@@ -310,3 +310,27 @@ export const updateBook = async (req, res) => {
 
     return sendResponse(res, true, 'Livre mis à jour avec succès.', updatedBook);
 }
+
+export const countDownload = async (req, res) => {
+    const { bookId } = req.params;
+    const book = await prisma.book.findUnique({
+        where: {
+            id: bookId
+        },
+    });
+
+    if (!book) {
+        return sendResponse(res, false, 'Livre non trouvé.');
+    }
+
+    await prisma.book.update({
+        data: {
+            download: { increment: 1 }
+        },
+        where: {
+            id: bookId
+        }
+    });
+
+    return sendResponse(res, true, 'Téléchargement compté');
+}
