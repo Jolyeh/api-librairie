@@ -41,7 +41,10 @@ export const getAllRequest = async (req, res) => {
                     email: true,
                 }
             }
-        }
+        },
+        orderBy: [
+            { createdAt: "desc" },
+        ]
     });
 
     return sendResponse(res, true, "Listes des demandes", requests);
