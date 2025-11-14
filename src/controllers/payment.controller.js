@@ -68,6 +68,8 @@ export const paymentCallback = async (req, res) => {
 
         switch (transaction.status) {
             case "approved":
+
+            
                 return sendResponse(res, true, "Paiement validé", transaction);
             case "pending":
                 return sendResponse(res, false, "Paiement en attente", transaction);
