@@ -144,7 +144,6 @@ exports.Prisma.BookScalarFieldEnum = {
   description: 'description',
   author: 'author',
   price: 'price',
-  stock: 'stock',
   image: 'image',
   file: 'file',
   size: 'size',

@@ -4797,14 +4797,12 @@ export namespace Prisma {
 
   export type BookAvgAggregateOutputType = {
     price: number | null
-    stock: number | null
     click: number | null
     download: number | null
   }
 
   export type BookSumAggregateOutputType = {
     price: number | null
-    stock: number | null
     click: number | null
     download: number | null
   }
@@ -4815,7 +4813,6 @@ export namespace Prisma {
     description: string | null
     author: string | null
     price: number | null
-    stock: number | null
     image: string | null
     file: string | null
     size: string | null
@@ -4837,7 +4834,6 @@ export namespace Prisma {
     description: string | null
     author: string | null
     price: number | null
-    stock: number | null
     image: string | null
     file: string | null
     size: string | null
@@ -4859,7 +4855,6 @@ export namespace Prisma {
     description: number
     author: number
     price: number
-    stock: number
     image: number
     file: number
     size: number
@@ -4879,14 +4874,12 @@ export namespace Prisma {
 
   export type BookAvgAggregateInputType = {
     price?: true
-    stock?: true
     click?: true
     download?: true
   }
 
   export type BookSumAggregateInputType = {
     price?: true
-    stock?: true
     click?: true
     download?: true
   }
@@ -4897,7 +4890,6 @@ export namespace Prisma {
     description?: true
     author?: true
     price?: true
-    stock?: true
     image?: true
     file?: true
     size?: true
@@ -4919,7 +4911,6 @@ export namespace Prisma {
     description?: true
     author?: true
     price?: true
-    stock?: true
     image?: true
     file?: true
     size?: true
@@ -4941,7 +4932,6 @@ export namespace Prisma {
     description?: true
     author?: true
     price?: true
-    stock?: true
     image?: true
     file?: true
     size?: true
@@ -5050,7 +5040,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock: number
     image: string
     file: string
     size: string
@@ -5091,7 +5080,6 @@ export namespace Prisma {
     description?: boolean
     author?: boolean
     price?: boolean
-    stock?: boolean
     image?: boolean
     file?: boolean
     size?: boolean
@@ -5120,7 +5108,6 @@ export namespace Prisma {
     description?: boolean
     author?: boolean
     price?: boolean
-    stock?: boolean
     image?: boolean
     file?: boolean
     size?: boolean
@@ -5136,7 +5123,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "stock" | "image" | "file" | "size" | "pages" | "chapitres" | "type" | "click" | "download" | "isDelete" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
+  export type BookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "author" | "price" | "image" | "file" | "size" | "pages" | "chapitres" | "type" | "click" | "download" | "isDelete" | "userId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["book"]>
   export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -5159,7 +5146,6 @@ export namespace Prisma {
       description: string
       author: string
       price: number
-      stock: number
       image: string
       file: string
       size: string
@@ -5574,7 +5560,6 @@ export namespace Prisma {
     readonly description: FieldRef<"Book", 'String'>
     readonly author: FieldRef<"Book", 'String'>
     readonly price: FieldRef<"Book", 'Float'>
-    readonly stock: FieldRef<"Book", 'Int'>
     readonly image: FieldRef<"Book", 'String'>
     readonly file: FieldRef<"Book", 'String'>
     readonly size: FieldRef<"Book", 'String'>
@@ -10127,7 +10112,6 @@ export namespace Prisma {
     description: 'description',
     author: 'author',
     price: 'price',
-    stock: 'stock',
     image: 'image',
     file: 'file',
     size: 'size',
@@ -10499,7 +10483,6 @@ export namespace Prisma {
     description?: StringFilter<"Book"> | string
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
-    stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
     file?: StringFilter<"Book"> | string
     size?: StringFilter<"Book"> | string
@@ -10525,7 +10508,6 @@ export namespace Prisma {
     description?: SortOrder
     author?: SortOrder
     price?: SortOrder
-    stock?: SortOrder
     image?: SortOrder
     file?: SortOrder
     size?: SortOrder
@@ -10554,7 +10536,6 @@ export namespace Prisma {
     description?: StringFilter<"Book"> | string
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
-    stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
     file?: StringFilter<"Book"> | string
     size?: StringFilter<"Book"> | string
@@ -10580,7 +10561,6 @@ export namespace Prisma {
     description?: SortOrder
     author?: SortOrder
     price?: SortOrder
-    stock?: SortOrder
     image?: SortOrder
     file?: SortOrder
     size?: SortOrder
@@ -10610,7 +10590,6 @@ export namespace Prisma {
     description?: StringWithAggregatesFilter<"Book"> | string
     author?: StringWithAggregatesFilter<"Book"> | string
     price?: FloatWithAggregatesFilter<"Book"> | number
-    stock?: IntWithAggregatesFilter<"Book"> | number
     image?: StringWithAggregatesFilter<"Book"> | string
     file?: StringWithAggregatesFilter<"Book"> | string
     size?: StringWithAggregatesFilter<"Book"> | string
@@ -11064,7 +11043,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -11088,7 +11066,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -11111,7 +11088,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -11134,7 +11110,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -11158,7 +11133,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -11179,7 +11153,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -11198,7 +11171,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -11689,7 +11661,6 @@ export namespace Prisma {
     description?: SortOrder
     author?: SortOrder
     price?: SortOrder
-    stock?: SortOrder
     image?: SortOrder
     file?: SortOrder
     size?: SortOrder
@@ -11707,7 +11678,6 @@ export namespace Prisma {
 
   export type BookAvgOrderByAggregateInput = {
     price?: SortOrder
-    stock?: SortOrder
     click?: SortOrder
     download?: SortOrder
   }
@@ -11718,7 +11688,6 @@ export namespace Prisma {
     description?: SortOrder
     author?: SortOrder
     price?: SortOrder
-    stock?: SortOrder
     image?: SortOrder
     file?: SortOrder
     size?: SortOrder
@@ -11740,7 +11709,6 @@ export namespace Prisma {
     description?: SortOrder
     author?: SortOrder
     price?: SortOrder
-    stock?: SortOrder
     image?: SortOrder
     file?: SortOrder
     size?: SortOrder
@@ -11758,7 +11726,6 @@ export namespace Prisma {
 
   export type BookSumOrderByAggregateInput = {
     price?: SortOrder
-    stock?: SortOrder
     click?: SortOrder
     download?: SortOrder
   }
@@ -12826,7 +12793,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -12849,7 +12815,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13000,7 +12965,6 @@ export namespace Prisma {
     description?: StringFilter<"Book"> | string
     author?: StringFilter<"Book"> | string
     price?: FloatFilter<"Book"> | number
-    stock?: IntFilter<"Book"> | number
     image?: StringFilter<"Book"> | string
     file?: StringFilter<"Book"> | string
     size?: StringFilter<"Book"> | string
@@ -13107,7 +13071,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13130,7 +13093,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13405,7 +13367,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13428,7 +13389,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13503,7 +13463,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -13525,7 +13484,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -13703,7 +13661,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13726,7 +13683,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13797,7 +13753,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -13819,7 +13774,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -13924,7 +13878,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -13969,7 +13922,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -13991,7 +13943,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -14013,7 +13964,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -14100,7 +14050,6 @@ export namespace Prisma {
     description: string
     author: string
     price: number
-    stock?: number
     image: string
     file: string
     size?: string
@@ -14120,7 +14069,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -14142,7 +14090,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
@@ -14164,7 +14111,6 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
-    stock?: IntFieldUpdateOperationsInput | number
     image?: StringFieldUpdateOperationsInput | string
     file?: StringFieldUpdateOperationsInput | string
     size?: StringFieldUpdateOperationsInput | string
